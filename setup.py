@@ -6,7 +6,7 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as readme:
 
 setuptools.setup(
     name="batch_checkpoint_merger",
-    version="0.0.3",
+    version="0.0.4",
     author="lodimas",
     author_email="lodimas123@gmail.com",
     description="Batch checkpoint merger, with a UI",
