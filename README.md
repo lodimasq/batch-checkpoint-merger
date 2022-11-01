@@ -23,7 +23,7 @@ Installation instructions are geared towards users of  [Automatic's Webui](https
 
 ### Quick Start Guide
 
-![](readme_images/uiguide.png)
+<a href="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/uiguide.png"> <img src="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/uiguide.png" alt="img.png" width=900> <a/>
 
 1. Select your model folder (usually stable-diffusion-webui\models\Stable-diffusion)
 2. Select your first model. This is the "base" model that we will be merging into
@@ -51,7 +51,7 @@ functionality in Automatic's webui. The "Copy XY" button will copy to the clipbo
 - Add some seed values to the "X values" box
 - Click generate
 
-<a href="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyconfig.png"> <img src="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyconfig.png" alt="img.png" style="max-width: 65%;"> <a/>
+<a href="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyconfig.png"> <img src="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyconfig.png" alt="img.png" width=900> <a/>
 
 The first and last row of images in each plot will be the Model A and Model B in their raw form (for reference).
 Once you find a ratio you like, you can rename your model and move it into the main directory (and delete any you don't need).
@@ -65,7 +65,7 @@ Below is an example created using SD1.5 and WD1.3. The settings used to create t
 
 (Left to right is seed, top to bottom is merge ratio)
 
-<a href="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyplot.png"> <img src="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyplot.png" alt="img.png" style="max-width: 35%;"> <a/>
+<a href="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyplot.png"> <img src="https://github.com/lodimasq/batch-checkpoint-merger/raw/master/readme_images/xyplot.png" alt="img.png" width=350> <a/>
 
 ### Interpolation Models
 
