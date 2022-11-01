@@ -12,27 +12,27 @@ import pyperclip
 def init_layout():
     interp_list = ['SmoothStep', 'SmootherStep', 'SmoothestStep', 'Exact']
     fp_list = ['Half (FP16)', 'Full (FP32)']
-    sg.user_settings_filename(path='..')
+    sg.user_settings_filename(filename='settings.json',path='..')
     smooth_step_blurb = (
-        'Sigmoid-like interpolation model. Smooths the output of the batch by biasing step \n'
-        'sizes which are closest to 0 and 1, the area in which merging has the largest effect.\n'
+        'Sigmoid-like interpolation model. Smooths the output of the batch by biasing step \r'
+        'sizes which are closest to 0 and 1, the area in which merging has the largest effect.\r'
         'The graph below depicts this smoothing effect. Your chosen steps are highlighted.')
-    exact_blurb = ('Linear merging model, no interpolation is applied to the step size. (1:1) \n'
+    exact_blurb = ('Linear merging model, no interpolation is applied to the step size. (1:1) \r'
                    'The graph below depicts this linear model. Your chosen steps are highlighted.')
     initial_folder = sg.user_settings_get_entry('folder_path', '')
     layout_frame_1 = [
         [sg.In(initial_folder or 'Your Model Folder', size=(32, 20), font='Arial',
                pad=((25, 0), (25, 12)), disabled=True, enable_events=True, k='folder_selected'),
          sg.FolderBrowse(size=(10, 0), font='Arial 10', pad=((9, 25), (25, 12)), k='folder_path')],
-        [sg.Text('Select Model A', pad=((25, 0), (25, 0)))],
+        [sg.Text('Select Model A', font='Arial 12', pad=((25, 0), (25, 0)))],
         [sg.Listbox(list(''), size=(50, 6), pad=((25, 0), (3, 0)), k='model_a')],
-        [sg.Text('Select Model B', pad=((25, 0), (25, 0)))],
+        [sg.Text('Select Model B', font='Arial 12', pad=((25, 0), (25, 0)))],
         [sg.Listbox(list(''), size=(50, 6), pad=((25, 0), (3, 0)), k='model_b')],
-        [sg.Text('Output Log', pad=((25, 0), (35, 0)))],
+        [sg.Text('Output Log', font='Arial 12', pad=((25, 0), (35, 0)))],
         [sg.Multiline(size=(125, 12), pad=((25, 25), (3, 25)), write_only=True, disabled=True,
                       reroute_stdout=True, reroute_stderr=True, echo_stdout_stderr=True,
                       autoscroll=True, auto_refresh=True)],
-        [sg.Ok('Merge', font='Arial 12', pad=((155, 0), (0, 0)), key='merge'),
+        [sg.Ok('Merge', font='Arial 12', pad=((158, 0), (0, 0)), key='merge'),
          sg.Ok('Copy XY', font='Arial 12', key='copy_xy')]
     ]
     input_layout_l = [
@@ -101,7 +101,7 @@ def merge_models(model_a, model_b, file_path, alpha_list, fn_list, interp_model,
         print(f'({k + 1}/{steps}) Saving Model...', end='\r')
         batch_dir = f'{file_path}/~batch_merges'
         Path(batch_dir).mkdir(parents=True, exist_ok=True)
-        torch.save(model_a, f'{batch_dir}/{filename}')
+        torch.save(model_0, f'{batch_dir}/{filename}')
         print(' Done!')
 
     print(' ===============Merge Batch Complete===============')
@@ -134,7 +134,6 @@ def get_filenames(folder):
     path = rf"{folder}/*.ckpt"
     files = list(map(os.path.basename, glob.glob(path)))
     return files
-
 
 def init_graph(bg_color, fg_color):
     fig = plt.figure(figsize=(6, 4), facecolor=bg_color)
@@ -224,7 +223,7 @@ def main():
     window = sg.Window('Batch Model Merger', layout_window, margins=(0, 0),
                        background_color='#C7D5E0',
                        finalize=True)
-
+    window.move_to_center()
     window['batch_start'].bind('<FocusOut>', '_lost')
     window['step_size'].bind('<FocusOut>', '_lost')
     window['nbr_steps'].bind('<FocusOut>', '_lost')
@@ -246,7 +245,7 @@ def main():
 
     print('Please select your models and options then click "Merge".')
 
-    # This is an Event Loop
+    # Event Loop
     while True:
         event, values = window.read()
         # if event not in (sg.TIMEOUT_EVENT, sg.WIN_CLOSED):

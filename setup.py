@@ -6,11 +6,11 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as readme:
 
 setuptools.setup(
     name="batch_checkpoint_merger",
-    version="0.0.4",
+    version="1.0.0",
     author="lodimas",
     author_email="lodimas123@gmail.com",
     description="Batch checkpoint merger, with a UI",
-    long_description="Batch checkpoint merger for merging stable diffusion models en masse",
+    long_description="Python based application to automate the creation of model checkpoint merges. Supports various interpolation models in an attempt to smooth the transition between merge steps.",
     long_description_content_type="text/markdown",
     url="https://github.com/",
     classifiers=[
@@ -19,9 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    entry_points={
-        'console_scripts': ['batch-chk-mrg=batch_checkpoint_merger.batch_checkpoint_merger:main'],
-    },
     install_requires=[
         'PySimpleGUI',
         'matplotlib',

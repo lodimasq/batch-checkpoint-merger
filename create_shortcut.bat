@@ -1,2 +1,0 @@
-powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%~dp0\Batch Checkpoint Merger.lnk'); $s.TargetPath='pythonw.exe'; $s.Arguments='batch_checkpoint_merger\batch_checkpoint_merger.py'; $s.Save()"
-(goto) 2>nul & del "%~f0"
