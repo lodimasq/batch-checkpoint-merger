@@ -13,6 +13,7 @@ setuptools.setup(
     long_description="Python based application to automate the creation of model checkpoint merges. Supports various interpolation models in an attempt to smooth the transition between merge steps.",
     long_description_content_type="text/markdown",
     url="https://github.com/",
+    packages=['batch_checkpoint_merger'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
