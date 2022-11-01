@@ -27,7 +27,7 @@ The below steps have been tested using Win10 and Manjaro, if you are using a dif
 This is the easiest installation method. Running the launcher will install or update the app and then open it. 
 
 - Download the launcher script from below (can also be found in "launcher_scripts" folder in this repo):
-  - Windows: [win_install_update_run.bat](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/win_install_update_run.bat) (Right click > Save)
+  - Windows: [win_install_update_run.bat](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/win_install_update_run.bat?token=GHSAT0AAAAAAB2JVWRVJSC6LIFRT2OKLWNMY3AP36Q) (Right click > Save)
   - Linux: [linux_install_update_run.sh](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/linux_install_update_run.sh) (Right click > Save)
 - (Optional) Rename the file to something memorable
 - Move/save the script to your stable-diffusion-webui folder (the same folder you run webui-user.bat/sh from)
