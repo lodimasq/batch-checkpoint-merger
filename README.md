@@ -2,7 +2,7 @@
 
 Python based application to automate batches of model checkpoint merges. The goal is to make it quick and easy to generate merges at many different ratios for the purposes of experimentation. 
 
-It has been noted by a number of community members that merging model checkpoints at very small ratios can have a significant effect on the result. In an attempt to make these transitions smoother, there are various interpolation models included in the application for you to choose from. You can also use the "exact" mode which does not use any interpolation.
+It has been noted by some community members that merging model checkpoints at very small ratios can have a significant effect on the result. In an attempt to make these transitions smoother, there are various interpolation models included in the application for you to choose from. You can also use the "exact" mode which does not use any interpolation.
 
 Installation instructions are geared towards users of  [Automatic's Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui). The application can run standalone if you are not using this (see "standalone installation" below)
 
@@ -42,7 +42,7 @@ If you do not want auto-update or having issues with the auto installer, you can
 
  - Open a command prompt
  - Navigate to your stable-diffusion-webui folder
-   - ```cd C:\MyFilePath\diffusion```
+   - ```cd C:\MyFilePath\stable-diffusion-webui```
  - Activate the venv
    - ```venv\scripts\activate```
    - _If done correctly you will see (venv) in front of your command line_
