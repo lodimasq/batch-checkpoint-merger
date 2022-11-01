@@ -62,7 +62,7 @@ If you do not want auto-update or having issues with the auto installer, you can
 
  - Open a terminal window
  - Navigate to your stable-diffusion-webui folder
-   - ```cd /home/MyFilePath/diffusion```
+   - ```cd /home/MyFilePath/stable-diffusion-webui```
  - Activate the venv
    - ```source /venv/bin/activate```
  - Install the package using pip
