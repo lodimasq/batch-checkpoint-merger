@@ -30,7 +30,7 @@ This is the easiest installation method. Running the launcher will install or up
   - Windows: [win_install_update_run.bat](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/win_install_update_run.bat) (Right click > Save)
   - Linux: [linux_install_update_run.sh](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/linux_install_update_run.sh) (Right click > Save)
 - (Optional) Rename the file to something memorable
-- Copy the script to your stable-diffusion-webui folder (the same folder you run webui-user.bat/sh from)
+- Move/save the script to your stable-diffusion-webui folder (the same folder you run webui-user.bat/sh from)
 - Open the script and the application should install and open. The application will auto-update.
 
 ### Manual Installation
@@ -54,7 +54,7 @@ If you do not want auto-update or having issues with the auto installer, you can
      - ```start venv\Scripts\pythonw.exe -m batch_checkpoint_merger```
    - Using the launcher script from the repo: [win_run_only.bat](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/win_run_only.bat) (Right click > Save)
      - (Optional) Rename the file to something memorable
-     - Move to your stable-diffusion-webui folder
+     - Move/save to your stable-diffusion-webui folder
      - Run the script to open
 
 #### Linux
@@ -72,7 +72,7 @@ If you do not want auto-update or having issues with the auto installer, you can
    - Using the launcher script from the repo: [linux_run_only.sh](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/linux_run_only.sh) (Right click > Save)
      - (Optional) Rename the file to something memorable
      - Make the file executable ```chmod +x```
-     - Move to your stable-diffusion-webui folder
+     - Move/save to your stable-diffusion-webui folder
      - Run the script to open
 
 #### macOS
