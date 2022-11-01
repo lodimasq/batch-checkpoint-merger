@@ -6,7 +6,7 @@ It has been noted by a number of community members that merging model checkpoint
 
 Installation instructions are geared towards users of  [Automatic's Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui). The application can run standalone if you are not using this (see "standalone installation" below)
 
-  * [Installation & Start](#installation---start)
+  * [Installation & Start](#installation-&-start)
     + [Auto Installer](#auto-installer)
     + [Manual Installation](#manual-installation)
       - [Windows](#windows)
@@ -16,7 +16,7 @@ Installation instructions are geared towards users of  [Automatic's Webui](https
   * [Usage](#usage)
     + [Quick Start Guide](#quick-start-guide)
     + [Interpolation Models](#interpolation-models)
-    + [X/Y Plotting](#x-y-plotting)
+    + [X/Y Plotting](#xy-plotting)
 
 ## Installation & Start
 
@@ -27,8 +27,8 @@ The below steps have been tested using Win10 and Manjaro, if you are using a dif
 This is the easiest installation method. Running the launcher will install or update the app and then open it. 
 
 - Download the launcher script from below (can also be found in "launcher_scripts" folder in this repo):
-  - Windows: [win_install_update_run.bat](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/win_install_update_run.bat?token=GHSAT0AAAAAAB2JVWRVJSC6LIFRT2OKLWNMY3AP36Q) (Right click > Save)
-  - Linux: [linux_install_update_run.sh](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/linux_install_update_run.sh) (Right click > Save)
+  - Windows: [win_install_update_run.bat](launcher_scripts/win_install_update_run.bat) (Right click > Save)
+  - Linux: [linux_install_update_run.sh](launcher_scripts/linux_install_update_run.sh) (Right click > Save)
 - (Optional) Rename the file to something memorable
 - Move/save the script to your stable-diffusion-webui folder (the same folder you run webui-user.bat/sh from)
 - Open the script and the application should install and open. The application will auto-update.
@@ -52,7 +52,7 @@ If you do not want auto-update or having issues with the auto installer, you can
      - ```pythonw -m batch_checkpoint_merger```
    - From a command prompt in the stable-diffusion-webui folder:
      - ```start venv\Scripts\pythonw.exe -m batch_checkpoint_merger```
-   - Using the launcher script from the repo: [win_run_only.bat](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/win_run_only.bat) (Right click > Save)
+   - Using the launcher script from the repo: [win_run_only.bat](launcher_scripts/win_run_only.bat) (Right click > Save)
      - (Optional) Rename the file to something memorable
      - Move/save to your stable-diffusion-webui folder
      - Run the script to open
@@ -69,7 +69,7 @@ If you do not want auto-update or having issues with the auto installer, you can
 - To run the application once installed use any of the below methods
    - From inside the venv using nohup: ```nohup python -m batch_checkpoint_merger >/dev/null 2>&1 &```
    - From inside the venv without nohup: ```python -m batch_checkpoint_merger``` (**Not Recommended:** Will block your terminal window and dump log lines)
-   - Using the launcher script from the repo: [linux_run_only.sh](https://gitcdn.link/cdn/lodimasq/batch-checkpoint-merger/master/launcher_scripts/linux_run_only.sh) (Right click > Save)
+   - Using the launcher script from the repo: [linux_run_only.sh](launcher_scripts/linux_run_only.sh) (Right click > Save)
      - (Optional) Rename the file to something memorable
      - Make the file executable ```chmod +x```
      - Move/save to your stable-diffusion-webui folder
