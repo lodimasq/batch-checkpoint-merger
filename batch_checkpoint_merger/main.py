@@ -127,7 +127,7 @@ def get_alpha_list(batch_start, interp_model, nbr_steps, step_size):
         return list(alpha_range_0), list(map(smootherstep, alpha_range))
     if interp_model == 'SmoothestStep':
         return list(alpha_range_0), list(map(smootheststep, alpha_range))
-    return list(alpha_range_0), list(alpha_range_0)
+    return list(alpha_range_0), list(alpha_range)
 
 
 def get_filenames(folder):
