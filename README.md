@@ -84,6 +84,8 @@ You can play around with your configuration and see the graph update each time (
 
 To read more about these functions, please see this wiki page on the topic: [https://en.wikipedia.org/wiki/Smoothstep](https://en.wikipedia.org/wiki/Smoothstep)
 
+Where is inverse sigmoid? Please refer to my response to this question [here.](https://github.com/lodimasq/batch-checkpoint-merger/issues/1#issuecomment-1309367492)
+
 ## Installation & Start
 
 The below steps have been tested using Win10 and Manjaro, if you are using a different OS you may need to modify
