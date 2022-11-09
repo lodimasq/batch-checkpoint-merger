@@ -1,12 +1,9 @@
+import importlib
 import glob
 import os
 import sys
-import PySimpleGUI as sg
-import matplotlib.pyplot as plt
 from pathlib import Path
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import torch
-import pyperclip
 
 
 def init_layout():
@@ -217,7 +214,11 @@ def draw_figure(canvas, figure):
     return figure_canvas_agg
 
 
-def main():
+def start_gui():
+    importlib.import_module('PySimpleGUI', package='sg')
+    importlib.import_module('matplotlib.pyplot', package='plt')
+    importlib.import_module('pyperclip')
+
     exact_blurb, initial_folder, layout_window, smooth_step_blurb = init_layout()
 
     window = sg.Window('Batch Model Merger', layout_window, margins=(0, 0),
@@ -293,6 +294,8 @@ def main():
     window.close()
     sys.exit()
 
+def main():
+    start_gui()
 
 if __name__ == '__main__':
     main()

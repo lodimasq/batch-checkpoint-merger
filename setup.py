@@ -25,6 +25,7 @@ setuptools.setup(
         'matplotlib',
         'pathlib',
         'torch',
-        'pyperclip'
+        'pyperclip',
+        'importlib'
     ]
 )
