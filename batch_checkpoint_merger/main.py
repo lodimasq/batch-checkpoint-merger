@@ -216,9 +216,13 @@ def draw_figure(canvas, figure):
 
 
 def start_gui():
-    importlib.import_module('PySimpleGUI', package='sg')
-    importlib.import_module('matplotlib.pyplot', package='plt')
-    importlib.import_module('pyperclip')
+
+    globals()['sg'] = importlib.import_module('PySimpleGUI')
+    globals()['plt'] = importlib.import_module('matplotlib.pyplot')
+    globals()['pyperclip'] = importlib.import_module('pyperclip')
+    temp_module = importlib.import_module('matplotlib.backends.backend_tkagg')
+    globals()['FigureCanvasTkAgg'] = temp_module.FigureCanvasTkAgg
+    del temp_module
 
     exact_blurb, initial_folder, layout_window, smooth_step_blurb = init_layout()
 
