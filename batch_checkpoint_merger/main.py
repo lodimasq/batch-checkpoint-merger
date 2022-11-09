@@ -1,12 +1,10 @@
+import importlib
 import glob
 import os
 import sys
-import PySimpleGUI as sg
-import matplotlib.pyplot as plt
 from pathlib import Path
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import torch
-import pyperclip
+import argparse
 
 
 def init_layout():
@@ -217,7 +215,15 @@ def draw_figure(canvas, figure):
     return figure_canvas_agg
 
 
-def main():
+def start_gui():
+
+    globals()['sg'] = importlib.import_module('PySimpleGUI')
+    globals()['plt'] = importlib.import_module('matplotlib.pyplot')
+    globals()['pyperclip'] = importlib.import_module('pyperclip')
+    temp_module = importlib.import_module('matplotlib.backends.backend_tkagg')
+    globals()['FigureCanvasTkAgg'] = temp_module.FigureCanvasTkAgg
+    del temp_module
+
     exact_blurb, initial_folder, layout_window, smooth_step_blurb = init_layout()
 
     window = sg.Window('Batch Model Merger', layout_window, margins=(0, 0),
@@ -293,6 +299,61 @@ def main():
     window.close()
     sys.exit()
 
+def start_tui(args):
+    parser = argparse.ArgumentParser(
+        prog        = 'python -m batch_checkpoint_merger',
+        description = 'Batch process the merging of Stable Diffusion Checkpoints',
+    )
+
+    parser.add_argument('--model_dir', required=True)
+    (parsed_args, more_args) = parser.parse_known_args(args)
+    print('Using models in ', parsed_args.model_dir)
+
+    models = get_filenames(parsed_args.model_dir)
+    parser.add_argument('--model_a', choices=models, required=True)
+    parser.add_argument('--model_b', choices=models, required=True)
+
+    parser.add_argument('--step_start', type=float, required=True)
+    parser.add_argument('--step_size',  type=float, required=True)
+    parser.add_argument('--step_count', type=int,   required=True)
+
+    interp_list = ['SmoothStep', 'SmootherStep', 'SmoothestStep', 'Exact']
+    parser.add_argument('--interpolation', choices=interp_list, required=True)
+
+    (parsed_args, more_args) = parser.parse_known_args(args)
+    fn_list, alpha_list = get_alpha_list(
+        parsed_args.step_start,
+        parsed_args.interpolation,
+        parsed_args.step_count,
+        parsed_args.step_size
+    )
+
+    print('Merging models..')
+    merge_models(
+        parsed_args.model_a,
+        parsed_args.model_b,
+        parsed_args.model_dir,
+        alpha_list,
+        fn_list,
+        parsed_args.interpolation,
+        '(FP16)'
+    )
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog        = 'python -m batch_checkpoint_merger',
+        description = 'Batch process the merging of Stable Diffusion Checkpoints',
+    )
+
+    parser.add_argument('--ui', default='gui', choices=['gui', 'tui'])
+    (args, more_args) = parser.parse_known_args()
+
+    if args.ui == 'gui':
+        print('Starting Graphical UI..')
+        start_gui()
+    elif args.ui == 'tui':
+        print('Starting Text UI')
+        start_tui(more_args)
 
 if __name__ == '__main__':
     main()
