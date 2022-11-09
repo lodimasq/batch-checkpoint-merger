@@ -7,10 +7,11 @@ from pathlib import Path
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import torch
 import pyperclip
+import math
 
 
 def init_layout():
-    interp_list = ['SmoothStep', 'SmootherStep', 'SmoothestStep', 'Exact']
+    interp_list = ['SmoothStep', 'SmootherStep', 'SmoothestStep', 'Exact', 'InverseSmoothStep']
     fp_list = ['Half (FP16)', 'Full (FP32)']
     sg.user_settings_filename(filename='settings.json',path='..')
     smooth_step_blurb = (
@@ -127,6 +128,8 @@ def get_alpha_list(batch_start, interp_model, nbr_steps, step_size):
         return list(alpha_range_0), list(map(smootherstep, alpha_range))
     if interp_model == 'SmoothestStep':
         return list(alpha_range_0), list(map(smootheststep, alpha_range))
+    if interp_model == 'InverseSmoothStep':
+        return list(alpha_range_0), list(map(inversesmootheststep, alpha_range))
     return list(alpha_range_0), list(alpha_range_0)
 
 
@@ -167,6 +170,9 @@ def plot_lines(ax, batch_start=0.05, interp_model='SmoothStep', nbr_steps=8, ste
     elif interp_model == 'SmoothestStep':
         demo_range_mod = list(map(smootheststep, demo_range))
         selected_range_mod = list(map(smootheststep, selected_range))
+    elif interp_model == 'InverseSmoothStep':
+        demo_range_mod = list(map(inversesmoothstep, demo_range))
+        selected_range_mod = list(map(inversesmoothstep, selected_range))
 
     if interp_model == 'Exact':
         selected_line = ax.plot(selected_range_org, selected_range_org, 'ys',
@@ -189,6 +195,10 @@ def remove_line(ax, del_line):
 
 def smoothstep(x):
     return x * x * (3 - 2 * x)
+
+
+def inversesmoothstep(x):
+    return 0.5 - math.sin(math.asin(1-2*x)/3)
 
 
 def smootherstep(x):
