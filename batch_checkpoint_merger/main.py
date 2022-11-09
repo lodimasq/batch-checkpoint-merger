@@ -4,6 +4,7 @@ import os
 import sys
 from pathlib import Path
 import torch
+import argparse
 
 
 def init_layout():
@@ -294,8 +295,24 @@ def start_gui():
     window.close()
     sys.exit()
 
+def start_tui(args):
+    print('Text UI not currently implemented')
+
 def main():
-    start_gui()
+    parser = argparse.ArgumentParser(
+        prog        = 'python -m batch_checkpoint_merger',
+        description = 'Batch process the merging of Stable Diffusion Checkpoints',
+    )
+
+    parser.add_argument('--ui', default='gui', choices=['gui', 'tui'])
+    (args, more_args) = parser.parse_known_args()
+
+    if args.ui == 'gui':
+        print('Starting Graphical UI..')
+        start_gui()
+    elif args.ui == 'tui':
+        print('Starting Text UI')
+        start_tui(more_args)
 
 if __name__ == '__main__':
     main()

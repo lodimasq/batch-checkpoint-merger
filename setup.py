@@ -26,6 +26,7 @@ setuptools.setup(
         'pathlib',
         'torch',
         'pyperclip',
-        'importlib'
+        'importlib',
+        'argparse'
     ]
 )
